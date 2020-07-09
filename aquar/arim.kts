@@ -1,17 +1,21 @@
-open class Book(val title: String, val author: String) {
+class Curry(name: String, spiciness: String,
+            color: SpiceColor = YellowSpiceColor) : Spice(name, spiciness, color), Grinder {
+    override fun grind() {
+    }
 
-    private var currentPage = 1
-
-    open fun readPage() {
-        currentPage++
+    override fun prepareSpice() {
+        grind()
     }
 }
 
-class eBook(title: String, author: String, var format: String = "text") : Book(title, author) {
+interface Grinder {
+    fun grind()
+}
 
-    private var wordsRead = 0
+interface SpiceColor {
+    val color: String
+}
 
-    override fun readPage() {
-        wordsRead = wordsRead + 250
-    }
+object YellowSpiceColor : SpiceColor {
+    override val color = "Yellow"
 }
