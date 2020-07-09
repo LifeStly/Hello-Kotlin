@@ -1,10 +1,17 @@
-package arim
-class arim{
-    var width:Int = 20
-    var height : Int = 40
-    var lenght : Int = 100
+open class Book(val title: String, val author: String) {
 
-    var volume : Int
-    get() = width * height * lenght / 1000
-    set(value) {height = (value * 1000)/(width * lenght)}
+    private var currentPage = 1
+
+    open fun readPage() {
+        currentPage++
+    }
+}
+
+class eBook(title: String, author: String, var format: String = "text") : Book(title, author) {
+
+    private var wordsRead = 0
+
+    override fun readPage() {
+        wordsRead = wordsRead + 250
+    }
 }
