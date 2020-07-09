@@ -1,2 +1,1 @@
-spices.take(3).filter{it.startsWith('c')}
-> [curry, cayenne]
+val rollDice = { Random().nextInt(12) + 1}
